@@ -14,6 +14,11 @@ public class Homework1 {
             {6, 5, 4},
             {3, 2, 1}
     };
+
+
+
+
+
 /*
     int[] array1 = {0, 1, 2};
     int[] array2 = {2, 1, 0};
