@@ -14,18 +14,25 @@ public class Homework1 {
             {6, 5, 4},
             {3, 2, 1}
     };
+/*
+    int[] array1 = {0, 1, 2};
+    int[] array2 = {2, 1, 0};
+*/
 
     int[][] prodotto = moltiplicaMatrici(matrice1, matrice2);
-
+   // int[] arrayProd = moltiplicaArray(array1, array2);
     public Homework1() {
 
     }
-
-
-
-
-
-
+/*
+    public static int[] moltiplicaArray(int[] array1, int[]array2){
+        int[] arrayProd = {0,0,0};
+        for(int i = 0; i < array1.length; i++){
+            arrayProd[i] = array1[i] + array2[i];
+        }
+        return arrayProd;
+    }
+*/
     public static int[][] moltiplicaMatrici(int[][] matrice1, int[][] matrice2) {
         int righe1 = matrice1.length;
         int colonne1 = matrice1[0].length;
@@ -51,9 +58,9 @@ public class Homework1 {
     }
 
     public static void stampaMatrice(int[][] matrice) {
-        for (int i = 0; i < matrice.length; i++) {
+        for (int[] ints : matrice) {
             for (int j = 0; j < matrice[0].length; j++) {
-                System.out.print(matrice[i][j] + " ");
+                System.out.print(ints[j] + " ");
             }
             System.out.println();
         }
