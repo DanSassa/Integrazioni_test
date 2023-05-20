@@ -56,7 +56,7 @@ public class Homework1Test {
     @DisplayName("check risultato corretto")
     void checkRisultatoCorretto() {
         Homework1 homework1 = new Homework1();
-
+/*
         int[][] matrice1 = {
                 {1, 2, 3},
                 {4, 5, 6},
@@ -68,7 +68,7 @@ public class Homework1Test {
                 {6, 5, 4},
                 {3, 2, 1}
         };
-
+*/
 
 
         int[][] result = {
