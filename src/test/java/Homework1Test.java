@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class Homework1Test {
-    Homework1 homework1 = new Homework1();
     int[][] matrice1 = {
             {1, 2, 3},
             {4, 5, 6},
@@ -104,22 +103,49 @@ public class Homework1Test {
     }
 
     @Test
+    @DisplayName("test matrici nulle")
+    void testMatriceNull() throws NullPointerException {
+        //T1
+        assertThrows(NullPointerException.class, ()-> Homework1.moltiplicaMatrici(null,matrice1));
+        //T2
+        assertThrows(NullPointerException.class, ()-> Homework1.moltiplicaMatrici(matrice1,null));
+    }
+
+    @Test
     @DisplayName("test matrice identità")
     void testMatriceIdentita() {
 
-        int[][] matrice1 = {
+        int[][] matrice = {
                 {1, 2, 3},
                 {4, 1, 6},
                 {7, 8, 1}
         };
 
-        int[][] matrice2 = {
+        int[][] matriceIdentita = {
                 {1, 0, 0},
                 {0, 1, 0},
                 {0, 0, 1}
         };
+        //T3
+        assertArrayEquals(matrice,Homework1.moltiplicaMatrici(matrice,matriceIdentita));
+        //T4
+        assertArrayEquals(matrice,Homework1.moltiplicaMatrici(matriceIdentita,matrice));
 
-        assertArrayEquals(matrice1,Homework1.moltiplicaMatrici(matrice1,matrice2));
+
+    }
+
+    @Test
+    @DisplayName("test matrice zeri")
+    void testMatriceZeri() {
+        int[][] matriceZeri = {
+                {0, 0, 0},
+                {0, 0, 0},
+                {0, 0, 0}
+        };
+        //T5
+        assertArrayEquals(matriceZeri,Homework1.moltiplicaMatrici(matriceZeri,matrice1));
+        //T6
+        assertArrayEquals(matriceZeri,Homework1.moltiplicaMatrici(matrice1,matriceZeri));
 
 
     }
@@ -128,33 +154,33 @@ public class Homework1Test {
     @DisplayName("test matrice negativa")
     void testMatriceNegativa() {
 
-        int[][] matrice2 = {
+        int[][] matriceNeg = {
                 {-9, 8, 7},
-                {-6, 5, 4},
-                {3, -2, 1}
+                {-6, 5, -4},
+                {-3, 2, -1}
         };
+
 
         int[][] result = {
-                {-12, 12, 18},
-                {-48, 45, 54},
-                {-84, 78, 90}
+                {-30, 24, -4},
+                {-84, 69, 2},
+                {-138, 114, 8}
         };
 
-        assertArrayEquals(result,Homework1.moltiplicaMatrici(matrice1,matrice2));
+        int[][] result1 = {
+                {72, 78, 84},
+                {-14, -19, -24},
+                {-2, -4, -6}
+        };
+
+
+        //T7
+        assertArrayEquals(result1,Homework1.moltiplicaMatrici(matriceNeg,matrice1));
+        //T8
+        assertArrayEquals(result,Homework1.moltiplicaMatrici(matrice1,matriceNeg));
 
 
     }
 
-    @Test
-    @DisplayName("test matrice zeri")
-    void testMatriceZeri() {
-        int[][] matrice2 = {
-                {0, 0, 0},
-                {0, 0, 0},
-                {0, 0, 0}
-        };
-        assertArrayEquals(matrice2,Homework1.moltiplicaMatrici(matrice1,matrice2));
 
-
-    }
 }
