@@ -17,6 +17,11 @@ public class Homework1Test {
             {3, 2, 1}
     };
 
+    int[][] matrice3 = {
+            {9, 8},
+            {3, 2}
+    };
+
 /*
     @Test
     @DisplayName("test verifica risultato")
@@ -48,7 +53,8 @@ public class Homework1Test {
     void testMatriciMoltiplicabili() {
 
         assertEquals(matrice1.length, matrice2[0].length);
-
+        assertNotEquals(matrice1.length, matrice3[0].length );
+        assertArrayEquals(null, Homework1.moltiplicaMatrici(matrice1,matrice3));
     }
 
     @Test

@@ -20,13 +20,10 @@ public class Homework1 {
     int[] array2 = {2, 1, 0};
 */
 
-        int[][] prodotto = moltiplicaMatrici(matrice1, matrice2);
+    int[][] prodotto = moltiplicaMatrici(matrice1, matrice2);
 
 
    // int[] arrayProd = moltiplicaArray(array1, array2);
-    public Homework1() {
-
-    }
 /*
     public static int[] moltiplicaArray(int[] array1, int[]array2){
         int[] arrayProd = {0,0,0};
