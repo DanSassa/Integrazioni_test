@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="it"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Homework1.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCo Coverage Results</a> &gt; <a href="index.source.html" class="el_package">org.example</a> &gt; <span class="el_source">Homework1.java</span></div><h1>Homework1.java</h1><pre class="source lang-java linenums">package org.example;
+
+import java.util.Arrays;
+
+<span class="nc" id="L5">public class Homework1 {</span>
+<span class="nc" id="L6">    int[][] matrice1 = {</span>
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+    };
+
+<span class="nc" id="L12">    int[][] matrice2 = {</span>
+            {9, 8, 7},
+            {6, 5, 4},
+            {3, 2, 1}
+    };
+
+/*
+    int[] array1 = {0, 1, 2};
+    int[] array2 = {2, 1, 0};
+*/
+
+<span class="nc" id="L23">    int[][] prodotto = moltiplicaMatrici(matrice1, matrice2);</span>
+
+
+   // int[] arrayProd = moltiplicaArray(array1, array2);
+/*
+    public static int[] moltiplicaArray(int[] array1, int[]array2){
+        int[] arrayProd = {0,0,0};
+        for(int i = 0; i &lt; array1.length; i++){
+            arrayProd[i] = array1[i] + array2[i];
+        }
+        return arrayProd;
+    }
+*/
+    public static int[][] moltiplicaMatrici(int[][] matrice1, int[][] matrice2) {
+<span class="fc" id="L37">        int righe1 = matrice1.length;</span>
+<span class="fc" id="L38">        int colonne1 = matrice1[0].length;</span>
+<span class="fc" id="L39">        int righe2 = matrice2.length;</span>
+<span class="fc" id="L40">        int colonne2 = matrice2[0].length;</span>
+
+<span class="pc bpc" id="L42" title="1 of 2 branches missed.">        if (colonne1 != righe2) {</span>
+<span class="nc" id="L43">            System.out.println(&quot;Le due matrici non possono essere moltiplicate.&quot;);</span>
+<span class="nc" id="L44">            return null;</span>
+        }
+
+<span class="fc" id="L47">        int[][] prodotto = new int[righe1][colonne2];</span>
+
+<span class="fc bfc" id="L49" title="All 2 branches covered.">        for (int i = 0; i &lt; righe1; i++) {</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">            for (int j = 0; j &lt; colonne2; j++) {</span>
+<span class="fc bfc" id="L51" title="All 2 branches covered.">                for (int k = 0; k &lt; colonne1; k++) {</span>
+<span class="fc" id="L52">                    prodotto[i][j] += matrice1[i][k] * matrice2[k][j];</span>
+                }
+            }
+        }
+<span class="fc" id="L56">        System.out.println(&quot;Matrice prodotto: &quot; + Arrays.deepToString(prodotto));</span>
+<span class="fc" id="L57">        return prodotto;</span>
+    }
+
+    public static void stampaMatrice(int[][] matrice) {
+<span class="nc bnc" id="L61" title="All 2 branches missed.">        for (int[] ints : matrice) {</span>
+<span class="nc bnc" id="L62" title="All 2 branches missed.">            for (int j = 0; j &lt; matrice[0].length; j++) {</span>
+<span class="nc" id="L63">                System.out.print(ints[j] + &quot; &quot;);</span>
+            }
+<span class="nc" id="L65">            System.out.println();</span>
+        }
+
+
+
+<span class="nc" id="L70">    }</span>
+
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
