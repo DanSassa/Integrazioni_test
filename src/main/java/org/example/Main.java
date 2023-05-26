@@ -6,12 +6,11 @@ import static org.example.Homework1.stampaMatrice;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-
         Homework1 homework1 = new Homework1();
         stampaMatrice(homework1.prodotto);
 
         Homework2 homework2 = new Homework2();
-        homework2.printSum(homework2.sum(2,4,7));
+        homework2.printTotal(homework2.OperationsBetweenNumbers(4,-2));
 
     }
 }
