@@ -9,5 +9,9 @@ public class Main {
 
         Homework1 homework1 = new Homework1();
         stampaMatrice(homework1.prodotto);
+
+        Homework2 homework2 = new Homework2();
+        homework2.printSum(homework2.sum(2,4,7));
+
     }
 }
