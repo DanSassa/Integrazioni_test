@@ -57,15 +57,22 @@ public class Homework2Test {
 
     @Test
     void boundaryCases() {
-        //T3
+        //T3 SOMMA
         Assertions.assertEquals(3, homework2.OperationsBetweenNumbers(1,2));
-        //T4
+        //T4 SOMMA
         Assertions.assertEquals(3, homework2.OperationsBetweenNumbers(2,1));
-        //T5
+        //T5 MOLTIPLICAZIONE
         Assertions.assertEquals(-2, homework2.OperationsBetweenNumbers(1,-2));
-        //T6
+        //T6 DIVISIONE
         Assertions.assertEquals(-2, homework2.OperationsBetweenNumbers(-2,1));
-        //T7
-        Assertions.assertEquals(3, homework2.OperationsBetweenNumbers(-1,2));
+        //T7 DIVISIONE
+        Assertions.assertEquals(-0.5, homework2.OperationsBetweenNumbers(-1,2));
+        //T8 MOLTIPLICAZIONE
+        Assertions.assertEquals(-2, homework2.OperationsBetweenNumbers(2,-1));
+        //T9 SOTTRAZIONE
+        Assertions.assertEquals(1, homework2.OperationsBetweenNumbers(-1,-2));
+        //T10 SOTTRAZIONE
+        Assertions.assertEquals(-1, homework2.OperationsBetweenNumbers(-2,-1));
+
     }
 }

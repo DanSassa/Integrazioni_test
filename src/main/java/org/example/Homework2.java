@@ -5,7 +5,7 @@ public class Homework2{
         public float OperationsBetweenNumbers(int var1, int var2) {
 
             float op;
-            if(var1 ==0 || var2 == 0)
+            if(var1 == 0 || var2 == 0)
                 throw new IllegalArgumentException();
            else{
                 if (var1 >0 && var2 >0){
