@@ -56,7 +56,7 @@ public class Homework2Test {
     }
 
     @Test
-    void boundaryCases() {
+    void testBoundaryCases() {
         //T3 SOMMA
         Assertions.assertEquals(3, homework2.OperationsBetweenNumbers(1,2));
         //T4 SOMMA
