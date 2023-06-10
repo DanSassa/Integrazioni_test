@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="it"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Homework1Test.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCo Coverage Results</a> &gt; <a href="index.source.html" class="el_package">org.example</a> &gt; <span class="el_source">Homework1Test.java</span></div><h1>Homework1Test.java</h1><pre class="source lang-java linenums">package org.example;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+<span class="fc" id="L8">public class Homework1Test {</span>
+<span class="fc" id="L9">    int[][] matrice1 = {</span>
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+    };
+
+<span class="fc" id="L15">    int[][] matrice2 = {</span>
+            {9, 8, 7},
+            {6, 5, 4},
+            {3, 2, 1}
+    };
+
+<span class="fc" id="L21">    int[][] matrice3 = {</span>
+            {9, 8},
+            {3, 2}
+    };
+
+/*
+    @Test
+    @DisplayName(&quot;test verifica risultato&quot;)
+    void testVerificaRisultato() {
+        int[][] matrice1 = {
+                {1, 2, 3},
+                {4, 5, 6},
+                {7, 8, 9}
+        };
+
+        int[][] matrice2 = {
+                {9, 8, 7},
+                {6, 5, 4},
+                {3, 2, 1}
+        };
+
+        int[][] matriceResult = {
+                {30, 24, 18},
+                {84, 69, 54},
+                {138, 114, 90}
+        };
+
+
+        assertEquals(matriceResult, homework1.moltiplicaMatrici(matrice1, matrice2));
+    }
+*/
+    @Test
+    @DisplayName(&quot;test matrici moltiplicabili&quot;)
+    void testMatriciMoltiplicabili() {
+
+<span class="fc" id="L56">        assertEquals(matrice1.length, matrice2[0].length);</span>
+<span class="fc" id="L57">        assertNotEquals(matrice1.length, matrice3[0].length );</span>
+<span class="fc" id="L58">        assertArrayEquals(null, Homework1.moltiplicaMatrici(matrice1,matrice3));</span>
+<span class="fc" id="L59">    }</span>
+
+    @Test
+    @DisplayName(&quot;test risultato corretto&quot;)
+    void testRisultatoCorretto() {
+
+<span class="fc" id="L65">        int[][] matrice1 = {</span>
+                {1, 2, 3},
+                {4, 5, 6},
+                {7, 8, 9}
+        };
+
+<span class="fc" id="L71">        int[][] matrice2 = {</span>
+                {9, 8, 7},
+                {6, 5, 4},
+                {3, 2, 1}
+        };
+
+<span class="fc" id="L77">        int[][] matrice3 = {</span>
+                {1, 2, 3},
+                {4, 5, 6}
+        };
+
+<span class="fc" id="L82">        int[][] matrice4 = {</span>
+                {9, 8},
+                {6, 5},
+                {3, 2}
+        };
+
+//RISULTATI
+
+
+<span class="fc" id="L91">        int[][] result = {</span>
+                {30, 24, 18},
+                {84, 69, 54},
+                {138, 114, 90}
+        };
+
+<span class="fc" id="L97">        int[][] result1 = {</span>
+                {30, 24, 18},
+                {84, 69, 54}
+        };
+
+<span class="fc" id="L102">        int[][] result2 = {</span>
+                {30, 24},
+                {84, 69}
+        };
+
+<span class="fc" id="L107">        assertArrayEquals(result,Homework1.moltiplicaMatrici(matrice1,matrice2));</span>
+<span class="fc" id="L108">        assertArrayEquals(result1,Homework1.moltiplicaMatrici(matrice3,matrice2));</span>
+<span class="fc" id="L109">        assertArrayEquals(result2,Homework1.moltiplicaMatrici(matrice3,matrice4));</span>
+<span class="fc" id="L110">    }</span>
+
+    @Test
+    @DisplayName(&quot;test matrici nulle&quot;)
+    void testMatriceNull() throws NullPointerException {
+        //T1
+<span class="pc" id="L116">        assertThrows(NullPointerException.class, ()-&gt; Homework1.moltiplicaMatrici(null,matrice1));</span>
+        //T2
+<span class="pc" id="L118">        assertThrows(NullPointerException.class, ()-&gt; Homework1.moltiplicaMatrici(matrice1,null));</span>
+<span class="fc" id="L119">    }</span>
+
+    @Test
+    @DisplayName(&quot;test matrice identità&quot;)
+    void testMatriceIdentita() {
+
+<span class="fc" id="L125">        int[][] matrice = {</span>
+                {1, 2, 3},
+                {4, 1, 6},
+                {7, 8, 1}
+        };
+
+<span class="fc" id="L131">        int[][] matriceIdentita = {</span>
+                {1, 0, 0},
+                {0, 1, 0},
+                {0, 0, 1}
+        };
+        //T3
+<span class="fc" id="L137">        assertArrayEquals(matrice,Homework1.moltiplicaMatrici(matrice,matriceIdentita));</span>
+        //T4
+<span class="fc" id="L139">        assertArrayEquals(matrice,Homework1.moltiplicaMatrici(matriceIdentita,matrice));</span>
+
+
+<span class="fc" id="L142">    }</span>
+
+    @Test
+    @DisplayName(&quot;test matrice zeri&quot;)
+    void testMatriceZeri() {
+<span class="fc" id="L147">        int[][] matriceZeri = {</span>
+                {0, 0, 0},
+                {0, 0, 0},
+                {0, 0, 0}
+        };
+        //T5
+<span class="fc" id="L153">        assertArrayEquals(matriceZeri,Homework1.moltiplicaMatrici(matriceZeri,matrice1));</span>
+        //T6
+<span class="fc" id="L155">        assertArrayEquals(matriceZeri,Homework1.moltiplicaMatrici(matrice1,matriceZeri));</span>
+
+
+<span class="fc" id="L158">    }</span>
+
+    @Test
+    @DisplayName(&quot;test matrice negativa&quot;)
+    void testMatriceNegativa() {
+
+<span class="fc" id="L164">        int[][] matriceNeg = {</span>
+                {-9, 8, 7},
+                {-6, 5, -4},
+                {-3, 2, -1}
+        };
+
+
+<span class="fc" id="L171">        int[][] result = {</span>
+                {-30, 24, -4},
+                {-84, 69, 2},
+                {-138, 114, 8}
+        };
+
+<span class="fc" id="L177">        int[][] result1 = {</span>
+                {72, 78, 84},
+                {-14, -19, -24},
+                {-2, -4, -6}
+        };
+
+
+        //T7
+<span class="fc" id="L185">        assertArrayEquals(result1,Homework1.moltiplicaMatrici(matriceNeg,matrice1));</span>
+        //T8
+<span class="fc" id="L187">        assertArrayEquals(result,Homework1.moltiplicaMatrici(matrice1,matriceNeg));</span>
+
+
+<span class="fc" id="L190">    }</span>
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

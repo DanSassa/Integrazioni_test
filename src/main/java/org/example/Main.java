@@ -10,7 +10,7 @@ public class Main {
         stampaMatrice(homework1.prodotto);
 
         Homework2 homework2 = new Homework2();
-        homework2.printTotal(homework2.OperationsBetweenNumbers(0,-8));
+        homework2.printTotal(homework2.OperationsBetweenNumbers(-1,2));
 
     }
 }

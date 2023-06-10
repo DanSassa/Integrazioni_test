@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="it"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Homework2Test.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCo Coverage Results</a> &gt; <a href="index.source.html" class="el_package">org.example</a> &gt; <span class="el_source">Homework2Test.java</span></div><h1>Homework2Test.java</h1><pre class="source lang-java linenums">package org.example;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+<span class="fc" id="L7">public class Homework2Test {</span>
+<span class="fc" id="L8">    Homework2 homework2 = new Homework2();</span>
+
+    @Test
+    void testZeri() {
+        //T1
+<span class="pc" id="L13">        Assertions.assertThrows(IllegalArgumentException.class, ()-&gt; homework2.OperationsBetweenNumbers(55,0));</span>
+        //T2
+<span class="pc" id="L15">        Assertions.assertThrows(IllegalArgumentException.class, ()-&gt; homework2.OperationsBetweenNumbers(0,1));</span>
+<span class="fc" id="L16">    }</span>
+
+    @Test
+    @DisplayName(&quot;test sulla somma dei due valori&quot;)
+    void testSomma() {
+        //T3
+<span class="fc" id="L22">        Assertions.assertEquals(10, homework2.OperationsBetweenNumbers(5,5));</span>
+        //Assertions.assertNotEquals(19, homework2.OperationsBetweenNumbers(5,15));
+
+
+
+<span class="fc" id="L27">    }</span>
+
+    @Test
+    @DisplayName(&quot;test sulla sottrazione dei due valori&quot;)
+    void testSottrazione() {
+        //T4
+<span class="fc" id="L33">        Assertions.assertEquals(-4, homework2.OperationsBetweenNumbers(-8,-4));</span>
+        //Assertions.assertNotEquals(-4, homework2.OperationsBetweenNumbers(-8,-5));
+
+<span class="fc" id="L36">    }</span>
+
+    @Test
+    @DisplayName(&quot;test sulla moltiplicazione dei due valori&quot;)
+    void testMoltiplicazione() {
+        //T5
+<span class="fc" id="L42">        Assertions.assertEquals(-35, homework2.OperationsBetweenNumbers(7,-5));</span>
+        //Assertions.assertNotSame(7,-7);
+
+<span class="fc" id="L45">    }</span>
+
+    @Test
+    @DisplayName(&quot;test sulla divisione dei due valori&quot;)
+    void testDivisione() {
+        //T5
+<span class="fc" id="L51">        Assertions.assertEquals(-5, homework2.OperationsBetweenNumbers(-10,2));</span>
+<span class="fc" id="L52">    }</span>
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
