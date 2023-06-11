@@ -75,4 +75,17 @@ public class Homework2Test {
         Assertions.assertEquals(-1, homework2.OperationsBetweenNumbers(-2,-1));
 
     }
+
+    @Test
+    void testPotenze() {
+        //SOMMA
+        Assertions.assertEquals(76, homework2.OperationsBetweenNumbers(27,(int)Math.pow(7,2)));
+        //DIFFERENZA
+        Assertions.assertEquals(6, homework2.OperationsBetweenNumbers(-2,(int)Math.pow(-2,3)));
+        //MOLTIPLICAZIONE
+        Assertions.assertEquals(-3584, homework2.OperationsBetweenNumbers(7,(int)Math.pow(-8,3)));
+        //DIVISIONE
+        Assertions.assertEquals(-0.25, homework2.OperationsBetweenNumbers(-2,(int)Math.pow(2,3)));
+    }
+
 }

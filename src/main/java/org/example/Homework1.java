@@ -1,7 +1,5 @@
 package org.example;
 
-import java.util.Arrays;
-
 public class Homework1 {
     int[][] matrice1 = {
             {1, 2, 3},
@@ -53,7 +51,7 @@ public class Homework1 {
                 }
             }
         }
-        System.out.println("Matrice prodotto: " + Arrays.deepToString(prodotto));
+        //System.out.println("Matrice prodotto: " + Arrays.deepToString(prodotto));
         return prodotto;
     }
 

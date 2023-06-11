@@ -6,51 +6,87 @@ import org.junit.jupiter.api.Test;
 
 <span class="fc" id="L7">public class Homework2Test {</span>
 <span class="fc" id="L8">    Homework2 homework2 = new Homework2();</span>
-
+    //TEST PER IL 100% DI CC
     @Test
     void testZeri() {
-        //T1
-<span class="pc" id="L13">        Assertions.assertThrows(IllegalArgumentException.class, ()-&gt; homework2.OperationsBetweenNumbers(55,0));</span>
-        //T2
-<span class="pc" id="L15">        Assertions.assertThrows(IllegalArgumentException.class, ()-&gt; homework2.OperationsBetweenNumbers(0,1));</span>
-<span class="fc" id="L16">    }</span>
+<span class="pc" id="L12">        Assertions.assertThrows(IllegalArgumentException.class, ()-&gt; homework2.OperationsBetweenNumbers(55,0));</span>
+<span class="pc" id="L13">        Assertions.assertThrows(IllegalArgumentException.class, ()-&gt; homework2.OperationsBetweenNumbers(0,1));</span>
+<span class="fc" id="L14">    }</span>
 
     @Test
     @DisplayName(&quot;test sulla somma dei due valori&quot;)
     void testSomma() {
-        //T3
-<span class="fc" id="L22">        Assertions.assertEquals(10, homework2.OperationsBetweenNumbers(5,5));</span>
-        //Assertions.assertNotEquals(19, homework2.OperationsBetweenNumbers(5,15));
-
-
-
-<span class="fc" id="L27">    }</span>
+<span class="fc" id="L19">        Assertions.assertEquals(10, homework2.OperationsBetweenNumbers(5,5));</span>
+<span class="fc" id="L20">    }</span>
 
     @Test
     @DisplayName(&quot;test sulla sottrazione dei due valori&quot;)
     void testSottrazione() {
-        //T4
-<span class="fc" id="L33">        Assertions.assertEquals(-4, homework2.OperationsBetweenNumbers(-8,-4));</span>
-        //Assertions.assertNotEquals(-4, homework2.OperationsBetweenNumbers(-8,-5));
-
-<span class="fc" id="L36">    }</span>
+<span class="fc" id="L25">        Assertions.assertEquals(-4, homework2.OperationsBetweenNumbers(-8,-4));</span>
+<span class="fc" id="L26">    }</span>
 
     @Test
     @DisplayName(&quot;test sulla moltiplicazione dei due valori&quot;)
     void testMoltiplicazione() {
-        //T5
-<span class="fc" id="L42">        Assertions.assertEquals(-35, homework2.OperationsBetweenNumbers(7,-5));</span>
-        //Assertions.assertNotSame(7,-7);
-
-<span class="fc" id="L45">    }</span>
+<span class="fc" id="L31">        Assertions.assertEquals(-35, homework2.OperationsBetweenNumbers(7,-5));</span>
+<span class="fc" id="L32">    }</span>
 
     @Test
     @DisplayName(&quot;test sulla divisione dei due valori&quot;)
     void testDivisione() {
-        //T5
-<span class="fc" id="L51">        Assertions.assertEquals(-5, homework2.OperationsBetweenNumbers(-10,2));</span>
-<span class="fc" id="L52">    }</span>
+<span class="fc" id="L37">        Assertions.assertEquals(-5, homework2.OperationsBetweenNumbers(-10,2));</span>
+<span class="fc" id="L38">    }</span>
 
+    //TEST BLACK-BOX
+
+    @Test
+    @DisplayName(&quot;test sulla correttezza dei risultati&quot;)
+    void testRisultatoCorretto() {
+<span class="fc" id="L45">        Assertions.assertEquals(4, homework2.OperationsBetweenNumbers(2,2));</span>
+<span class="fc" id="L46">        Assertions.assertEquals(40, homework2.OperationsBetweenNumbers(25,15));</span>
+<span class="fc" id="L47">        Assertions.assertEquals(-20, homework2.OperationsBetweenNumbers(10,-2));</span>
+<span class="fc" id="L48">    }</span>
+    @Test
+    void testValoreNullo() {
+<span class="fc" id="L51">        Integer v= null;</span>
+        //T1
+<span class="pc" id="L53">        Assertions.assertThrows(NullPointerException.class, ()-&gt; homework2.OperationsBetweenNumbers(v,4) );</span>
+        //T2
+<span class="pc" id="L55">        Assertions.assertThrows(NullPointerException.class, ()-&gt; homework2.OperationsBetweenNumbers(4,v) );</span>
+<span class="fc" id="L56">    }</span>
+
+    @Test
+    void testBoundaryCases() {
+        //T3 SOMMA
+<span class="fc" id="L61">        Assertions.assertEquals(3, homework2.OperationsBetweenNumbers(1,2));</span>
+        //T4 SOMMA
+<span class="fc" id="L63">        Assertions.assertEquals(3, homework2.OperationsBetweenNumbers(2,1));</span>
+        //T5 MOLTIPLICAZIONE
+<span class="fc" id="L65">        Assertions.assertEquals(-2, homework2.OperationsBetweenNumbers(1,-2));</span>
+        //T6 DIVISIONE
+<span class="fc" id="L67">        Assertions.assertEquals(-2, homework2.OperationsBetweenNumbers(-2,1));</span>
+        //T7 DIVISIONE
+<span class="fc" id="L69">        Assertions.assertEquals(-0.5, homework2.OperationsBetweenNumbers(-1,2));</span>
+        //T8 MOLTIPLICAZIONE
+<span class="fc" id="L71">        Assertions.assertEquals(-2, homework2.OperationsBetweenNumbers(2,-1));</span>
+        //T9 SOTTRAZIONE
+<span class="fc" id="L73">        Assertions.assertEquals(1, homework2.OperationsBetweenNumbers(-1,-2));</span>
+        //T10 SOTTRAZIONE
+<span class="fc" id="L75">        Assertions.assertEquals(-1, homework2.OperationsBetweenNumbers(-2,-1));</span>
+
+<span class="fc" id="L77">    }</span>
+
+    @Test
+    void testPotenze() {
+        //SOMMA
+<span class="fc" id="L82">        Assertions.assertEquals(76, homework2.OperationsBetweenNumbers(27,(int)Math.pow(7,2)));</span>
+        //DIFFERENZA
+<span class="fc" id="L84">        Assertions.assertEquals(6, homework2.OperationsBetweenNumbers(-2,(int)Math.pow(-2,3)));</span>
+        //MOLTIPLICAZIONE
+<span class="fc" id="L86">        Assertions.assertEquals(-3584, homework2.OperationsBetweenNumbers(7,(int)Math.pow(-8,3)));</span>
+        //DIVISIONE
+<span class="fc" id="L88">        Assertions.assertEquals(-0.25, homework2.OperationsBetweenNumbers(-2,(int)Math.pow(2,3)));</span>
+<span class="fc" id="L89">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
