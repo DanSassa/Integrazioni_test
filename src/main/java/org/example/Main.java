@@ -12,5 +12,6 @@ public class Main {
         Homework2 homework2 = new Homework2();
         homework2.printTotal(homework2.OperationsBetweenNumbers(-1,2));
 
+
     }
 }
