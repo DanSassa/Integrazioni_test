@@ -2,13 +2,12 @@ package org.example;
 
 public class Homework3 {
 
-    public float divisione(int a, int b) throws ArithmeticException {
-        if((a<-50 || a >50) || (b<-50 || b>50)){
-            throw new IllegalArgumentException("i valori devono essere compresi tra -50 e 50.");
+    public float divisione(float a, float b) throws IllegalArgumentException {
+        if(b==0)
+            throw new ArithmeticException("non si può dividere un numero per 0!");
 
-        }else{
-            return (float)a/b;
-        }
+        return a/b;
+
     }
 
 

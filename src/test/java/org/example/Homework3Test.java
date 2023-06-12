@@ -1,7 +1,7 @@
 package org.example;
 
 import net.jqwik.api.*;
-import net.jqwik.api.constraints.IntRange;
+import net.jqwik.api.constraints.FloatRange;
 import net.jqwik.api.statistics.Histogram;
 import net.jqwik.api.statistics.Statistics;
 import net.jqwik.api.statistics.StatisticsReport;
@@ -14,9 +14,9 @@ public class Homework3Test {
     @Property
     @Report(Reporting.GENERATED)
     @StatisticsReport(format= Histogram.class)
-    public void pass(@ForAll @IntRange(min = -50, max = 50) int a, @ForAll @IntRange(min = -50, max = 50) int b) {
+    public void pass(@ForAll @FloatRange(min = -50.0f, max = 50.0f) float a, @ForAll @FloatRange(min = -50.0f, max = 50.0f) float b) {
         Assume.that(b !=0);
-        int result = a/b;
+        float result = a/b;
         Assertions.assertEquals(result, homework3.divisione(a,b));
 
         Statistics.collect(a, "/", b, "=", homework3.divisione(a,b));
@@ -25,8 +25,8 @@ public class Homework3Test {
     @Property
     @Report(Reporting.GENERATED)
     @StatisticsReport(format= Histogram.class)
-    public void fail(@ForAll @IntRange(min = -50, max = 50) int a) {
-        int b=0;
+    public void fail(@ForAll @FloatRange(min = -50.0f, max = 50.0f) float a) {
+        float b=0;
         Assertions.assertThrows(ArithmeticException.class,()-> homework3.divisione(a,b));
 
         Statistics.collect(a, "/", b, "= impossibile");
@@ -35,17 +35,17 @@ public class Homework3Test {
     @Property
     @Report(Reporting.GENERATED)
     @StatisticsReport(format= Histogram.class)
-    public void invalid(@ForAll("invalidNumbers") int a, @ForAll("invalidNumbers") int b) {
+    public void invalid(@ForAll("invalidNumbers") float a, @ForAll("invalidNumbers") float b) {
         Assertions.assertThrows(IllegalArgumentException.class, ()-> homework3.divisione(a,b));
 
         Statistics.collect(a, "/", b, "= out of range");
     }
 
     @Provide
-    public Arbitrary<Integer> invalidNumbers(){
+    public Arbitrary<Float> invalidNumbers(){
         return Arbitraries.oneOf(
-                Arbitraries.integers().lessOrEqual(-51),
-                Arbitraries.integers().greaterOrEqual(51)
+                Arbitraries.floats().lessOrEqual(-51.0f),
+                Arbitraries.floats().greaterOrEqual(51.0f)
         );
     }
 }
