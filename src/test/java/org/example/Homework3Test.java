@@ -13,8 +13,8 @@ public class Homework3Test {
 
     @Property
     @Report(Reporting.GENERATED)
-    @StatisticsReport(format= Histogram.class)
-    public void pass(@ForAll @FloatRange(min = -50.0f, max = 50.0f) float a, @ForAll @FloatRange(min = -50.0f, max = 50.0f) float b) {
+    public void pass(@ForAll @FloatRange(min = -50.0f, max = 50.0f) float a,
+                     @ForAll @FloatRange(min = -50.0f, max = 50.0f) float b) {
         Assume.that(b !=0);
         float result = a/b;
         Assertions.assertEquals(result, homework3.divisione(a,b));
